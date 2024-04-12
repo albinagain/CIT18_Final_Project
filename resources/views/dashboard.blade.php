@@ -16,6 +16,11 @@
         </form>
     </div>
 @endif
+<div class="flex justify-center space-x-3 py-3">
+    <button class="btn">New Order</button>
+    <button class="btn">Edit Orders</button>
+    <button class="btn">Delete Orders</button>
+</div>
 <div class="containter mx-auto">
     <table class="table-auto ">
         <thead>
