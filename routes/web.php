@@ -26,6 +26,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [OrderController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/product', [ProductController::class, 'index'])->middleware(['auth', 'verified'])->name('product');
+Route::post('/order-store', [OrderController::class, 'store'])->name('order.store');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

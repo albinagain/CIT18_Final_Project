@@ -17,9 +17,9 @@
     </div>
 @endif
 <div class="flex justify-center space-x-3 py-3">
-    <button class="btn">New Order</button>
-    <button class="btn">Edit Orders</button>
-    <button class="btn">Delete Orders</button>
+    <a class="btn" href="{{ route('product') }}">New Order</a>
+    <a class="btn">Edit Orders</a>
+    <a class="btn">Delete Orders</a>
 </div>
 <div class="containter mx-auto">
     <table class="table-auto ">
