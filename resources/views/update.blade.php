@@ -1,4 +1,5 @@
 @include('partials/header')
+
 @if (Route::has('login'))
     <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10 flex space-x-4">
         <x-responsive-nav-link :href="route('profile.edit')">
@@ -16,11 +17,7 @@
         </form>
     </div>
 @endif
-<div class="flex justify-center space-x-3 py-3">
-    <a class="btn" href="{{ route('product') }}">New Order</a>
-    <a class="btn" href="{{ route('update-order') }}">Edit Orders</a>
-    <a class="btn">Delete Orders</a>
-</div>
+
 <div class="containter mx-auto">
     <table class="table-auto ">
         <thead>
@@ -28,19 +25,23 @@
                 <th>Product Name</th>
                 <th>Product Price</th>
                 <th>Amount Ordered</th>
-                <th>Date Ordered</th>
             </tr>
         </thead>
         <tbody>
             @foreach($data as $items)
-            <tr>
-                <td>{{ $items->product->name }}</td>
-                <td>₱ {{ $items->product->price }}</td>
-                <td>{{ $items->amount }}</td>
-                <td>{{ $items->created_at }}</td>
-            </tr>
+            <form method="POST" action="{{ route('order.update', $items->id) }}">
+                @csrf
+                @method('PUT')
+                <tr>
+                    <td>{{ $items->product->name }}</td>
+                    <td>₱ {{ $items->product->price }}</td>
+                    <td><input type="number" name="amount" value="{{ $items->amount }}" required></td>
+                    <td><button class="btn" type="submit">Update</button></td>
+                </tr>
+            </form>
         @endforeach
         </tbody>
     </table>
 </div>
+
 @include('partials/footer')

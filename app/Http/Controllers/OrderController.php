@@ -12,6 +12,10 @@ class OrderController extends Controller
         $data = Order::with('product')->get();
         return view('dashboard', ['data' => $data]);
     }
+    public function show(){
+        $data = Order::with('product')->get();
+        return view('update', ['data' => $data]);
+    }
     public function store(Request $request){
         $order = new Order();
         $order->user_id = Auth::id(); 
@@ -20,5 +24,12 @@ class OrderController extends Controller
         $order->save();
 
         return redirect()->route('dashboard');
+    }
+    public function update(Request $request, $id){
+        $order = Order::findOrFail($id);
+        $order->amount = $request->input('amount');
+        $order->save();
+
+        return redirect()->route('update-order', $order->id);
     }
 }
