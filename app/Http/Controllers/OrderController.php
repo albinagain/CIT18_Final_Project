@@ -9,15 +9,18 @@ use Illuminate\Http\Request;
 class OrderController extends Controller
 {
     public function index(){
-        $data = Order::with('product')->get();
+        $userId = Auth::id();
+        $data = Order::with('product')->where('user_id', $userId)->get();
         return view('dashboard', ['data' => $data]);
     }
     public function showUpdate(){
-        $data = Order::with('product')->get();
+        $userId = Auth::id();
+        $data = Order::with('product')->where('user_id', $userId)->get();
         return view('update', ['data' => $data]);
     }
     public function showDelete(){
-        $data = Order::with('product')->get();
+        $userId = Auth::id();
+        $data = Order::with('product')->where('user_id', $userId)->get();
         return view('delete', ['data' => $data]);
     }
     public function store(Request $request){
