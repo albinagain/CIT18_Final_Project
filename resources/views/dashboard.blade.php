@@ -26,7 +26,13 @@
             </tr>
         </thead>
         <tbody>
-
+            @foreach($data as $items)
+            <tr>
+                <td>{{ $items->product->name }}</td>
+                <td>₱ {{ $items->product->price }}</td>
+                <td>{{ $items->amount }}</td>
+            </tr>
+        @endforeach
         </tbody>
     </table>
 </div>
