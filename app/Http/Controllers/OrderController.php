@@ -12,9 +12,13 @@ class OrderController extends Controller
         $data = Order::with('product')->get();
         return view('dashboard', ['data' => $data]);
     }
-    public function show(){
+    public function showUpdate(){
         $data = Order::with('product')->get();
         return view('update', ['data' => $data]);
+    }
+    public function showDelete(){
+        $data = Order::with('product')->get();
+        return view('delete', ['data' => $data]);
     }
     public function store(Request $request){
         $order = new Order();
@@ -31,5 +35,11 @@ class OrderController extends Controller
         $order->save();
 
         return redirect()->route('update-order', $order->id);
+    }
+    public function destroy(Request $request){
+        $orderId = $request->input('to-delete');
+        Order::whereIn('id', $orderId)->delete();
+    
+        return redirect()->route('dashboard');
     }
 }

@@ -26,10 +26,11 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [OrderController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/product', [ProductController::class, 'index'])->middleware(['auth', 'verified'])->name('product');
-Route::get('/update', [OrderController::class, 'show'])->middleware(['auth', 'verified'])->name('update-order');
-Route::get('/delete', [OrderController::class, 'destroy'])->middleware(['auth', 'verified'])->name('delete-order');
+Route::get('/update', [OrderController::class, 'showUpdate'])->middleware(['auth', 'verified'])->name('update-order');
+Route::get('/delete', [OrderController::class, 'ShowDelete'])->middleware(['auth', 'verified'])->name('delete-order');
 Route::post('/order-store', [OrderController::class, 'store'])->name('order.store');
 Route::put('/order-update/{order}', [OrderController::class, 'update'])->name('order.update');
+Route::delete('/order-destroy', [OrderController::class, 'destroy'])->name('order.destroy');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
