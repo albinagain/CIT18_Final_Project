@@ -23,6 +23,7 @@
                 <th>Product Name</th>
                 <th>Product Price</th>
                 <th>Amount Ordered</th>
+                <th>Date Ordered</th>
             </tr>
         </thead>
         <tbody>
@@ -31,6 +32,7 @@
                 <td>{{ $items->product->name }}</td>
                 <td>₱ {{ $items->product->price }}</td>
                 <td>{{ $items->amount }}</td>
+                <td>{{ $items->created_at }}</td>
             </tr>
         @endforeach
         </tbody>
