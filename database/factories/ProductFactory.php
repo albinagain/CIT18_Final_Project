@@ -19,7 +19,7 @@ class ProductFactory extends Factory
         $plantNames = ['Lily', 'Rose', 'Sunflower', 'Snake Plant', 'Daisy', 'Peach', 'Mario', 'Luigi', 'Bowser', 'Yoshi', 'Donkey Kong', 'Wario', 'Waluigi', 'Toad', 'Rosalina', 'Pauline', 'Oompa Lumpa'];
         return [
             'name' => fake()->name(),
-            'price' => fake()->numberBetween(100, 1000);
+            'price' => fake()->numberBetween(100, 1000),
         ];
     }
 }
