@@ -16,4 +16,18 @@
         </form>
     </div>
 @endif
+<div class="containter mx-auto">
+    <table class="table-auto ">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Amount Ordered</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</div>
 @include('partials/footer')
