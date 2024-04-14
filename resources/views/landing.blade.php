@@ -17,4 +17,14 @@
         @endauth
     </div>
 @endif
+
+<div class="container mx-auto antialiased">
+    <div class="flex flex-col items-center">
+        <h1 class="text-4xl md:text-7xl lg:text-8xl text-center py-10 md:py-16 lg:py-20 font-bold">Welcome to a totally legit plant store!</h1>
+        <a href="{{ route('register') }}" class="btn">Make a New Account</a>
+        <p>Something</p>
+    </div>
+</div>
+
+
 @include('partials/footer')
