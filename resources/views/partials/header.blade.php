@@ -10,7 +10,7 @@
 <body>
     <header>
         <div class="h-16 bg-lime-500 flex items-center px-2">
-            <h1 class="antialiased text-3xl font-bold text-center">A totally legit plant store</h1>
+            <h1 class="antialiased text-3xl font-bold text-center hidden sm:block">A totally legit plant store</h1>
         </div>
 
     </header>

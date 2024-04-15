@@ -1,5 +1,5 @@
 @if (Route::has('login'))
-    <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10 flex space-x-4">
+    <div class="fixed top-0 right-0 p-6 text-right z-20 flex space-x-4">
         <x-responsive-nav-link :href="route('profile.edit')">
             {{ __('Profile') }}
         </x-responsive-nav-link>
@@ -15,7 +15,7 @@
         </form>
     </div>
 @endif
-<div class="flex justify-center space-x-3 py-3">
+<div class="flex justify-center space-x-3 py-3 text-center">
     <a class="btn" href="{{ route('dashboard') }}">Dashboard</a>
     <a class="btn" href="{{ route('product') }}">New Order</a>
     <a class="btn" href="{{ route('update-order') }}">Edit Orders</a>
