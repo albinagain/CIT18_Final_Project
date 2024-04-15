@@ -29,12 +29,16 @@ class OrderController extends Controller
             'amount' => 'required|integer',
         ]);
 
-        $order = new Order();
-        $order->user_id = Auth::id(); 
-        $order->product_id = $validated['product_id']; 
-        $order->amount = $validated['amount'];
-        $order->save();
+        try {
+            $order = new Order();
+            $order->user_id = Auth::id(); 
+            $order->product_id = $validated['product_id']; 
+            $order->amount = $validated['amount'];
+            $order->save();
 
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => 'The amount ordered is too much.']);
+        }
         return redirect()->route('dashboard')->with('success', 'Order created successfully!');
     }
     public function update(Request $request, $id){
@@ -42,16 +46,22 @@ class OrderController extends Controller
             'amount' => 'required|integer',
         ]);
         
-        $order = Order::findOrFail($id);
-        $order->amount = $validated['amount'];
-        $order->save();
-
-        return redirect()->route('update-order', $order->id)->with('success', 'Order updated successfully!');
+        try {
+            $order = Order::findOrFail($id);
+            $order->amount = $validated['amount'];
+            $order->save();
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => 'The amount ordered is too much.']);
+        }
+        return redirect()->route('dashboard', $order->id)->with('success', 'Order updated successfully!');
     }
     public function destroy(Request $request){
-        $orderId = $request->input('to-delete');
-        Order::whereIn('id', $orderId)->delete();
-    
+        try {
+            $orderId = $request->input('to-delete');
+            Order::whereIn('id', $orderId)->delete();
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => 'An error occured while processing your request.']);
+        }
         return redirect()->route('dashboard')->with('success', 'Selected order deleted successfully!');
     }
 }

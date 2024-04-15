@@ -1,5 +1,7 @@
 @include('partials/header')
+
 <x-nav />
+<x-toast />
 
 <div class="containter mx-auto">
     <table class="table-auto ">
@@ -30,4 +32,5 @@
         </form>
     </table>
 </div>
+
 @include('partials/footer')
