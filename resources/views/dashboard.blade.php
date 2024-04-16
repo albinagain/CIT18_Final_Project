@@ -3,23 +3,23 @@
 <x-nav />
 <x-toast />
 
-<div class="containter mx-auto">
-    <table class="table-auto ">
+<div class="containter mx-auto flex justify-center">
+    <table class="table-auto">
         <thead>
             <tr>
-                <th>Product Name</th>
-                <th>Product Price</th>
-                <th>Amount Ordered</th>
-                <th>Date Ordered</th>
+                <th class="px-3 py-1">Product Name</th>
+                <th class="px-3 py-1">Product Price</th>
+                <th class="px-3 py-1">Amount Ordered</th>
+                <th class="px-3 py-1">Date Ordered</th>
             </tr>
         </thead>
         <tbody>
             @foreach($data as $items)
             <tr>
-                <td>{{ $items->product->name }}</td>
-                <td>₱ {{ $items->product->price }}</td>
-                <td>{{ $items->amount }}</td>
-                <td>{{ $items->created_at }}</td>
+                <td class="px-3 py-1">{{ $items->product->name }}</td>
+                <td class="px-3 py-1 text-center">₱ {{ $items->product->price }}</td>
+                <td class="px-3 py-1 text-center">{{ $items->amount }}</td>
+                <td class="px-3 py-1 text-center">{{ $items->created_at }}</td>
             </tr>
         @endforeach
         </tbody>

@@ -3,13 +3,13 @@
 <x-nav />
 <x-toast />
 
-<div class="containter mx-auto">
+<div class="containter mx-auto flex justify-center">
     <table class="table-auto ">
         <thead>
             <tr>
-                <th>Product Name</th>
-                <th>Product Price</th>
-                <th>Amount Ordered</th>
+                <th class="px-3 py-1">Product Name</th>
+                <th class="px-3 py-1">Product Price</th>
+                <th class="px-3 py-1">Amount Ordered</th>
             </tr>
         </thead>
         <tbody>
@@ -18,10 +18,10 @@
                 @csrf
                 @method('PUT')
                 <tr>
-                    <td>{{ $items->product->name }}</td>
-                    <td>₱ {{ $items->product->price }}</td>
-                    <td><input type="number" name="amount" value="{{ $items->amount }}" required></td>
-                    <td><button class="btn" type="submit">Update</button></td>
+                    <td class="px-3 py-1">{{ $items->product->name }}</td>
+                    <td class="px-3 py-1">₱ {{ $items->product->price }}</td>
+                    <td class="px-3 py-1"><input type="number" name="amount" value="{{ $items->amount }}" required></td>
+                    <td class="px-3 py-1"><button class="btn" type="submit">Update</button></td>
                 </tr>
             </form>
         @endforeach
